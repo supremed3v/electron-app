@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { useGlobalContext } from '../../context/ContextProvider'
 import { links } from '../assets/constants'
+import { BiLogOutCircle } from 'react-icons/bi'
 
 const Sidebar = () => {
   const [screenSize, setScreenSize] = useState(undefined)
@@ -58,9 +59,11 @@ const Sidebar = () => {
         </div>
       </div>
       {/* Logout button */}
-      <div className="flex flex-col items-center justify-end mt-20">
-        <button className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded">
-          Logout
+      <div className="flex items-center justify-center mt-20">
+        <button className="flex items-center gap-5 pl-4 pt-4 pb-2.5 rounded-lg text-white bg-red-600 text-md m-2 pr-2">
+          <span>Logout</span>
+
+          <BiLogOutCircle />
         </button>
       </div>
     </div>
