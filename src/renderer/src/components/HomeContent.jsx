@@ -1,5 +1,5 @@
 const HomeContent = () => {
-  return <div>Email Content</div>
+  return <div>Home Content</div>
 }
 
 export default HomeContent
