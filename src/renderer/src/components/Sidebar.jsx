@@ -1,12 +1,9 @@
-import { useState } from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import { useGlobalContext } from '../../context/ContextProvider'
 import { links } from '../assets/constants'
 import { BiLogOutCircle } from 'react-icons/bi'
 
 const Sidebar = () => {
-  const [screenSize, setScreenSize] = useState(undefined)
-
   const { activeMenu, setActiveMenu } = useGlobalContext()
   const activeLink =
     'flex items-center gap-5 pl-4 pt-4 pb-2.5 rounded-lg text-blue-400 text-md m-2 pr-2'
@@ -31,13 +28,14 @@ const Sidebar = () => {
 
       {/* Sidebar Links */}
 
-      <div className="mt-8">
-        <div className="flex items-left justify-left px-4">
+      <div className="mt-4 overflow-clip">
+        <div className="flex items-center justify-left md:px-10 lg:px-10 px-4">
           <div className="flex flex-col items-center justify-center">
             <div className="mt-10">
               {links.map((item) => (
                 <div key={item.title}>
                   <p className="text-gray-400 m-3 mt-5 uppercase">{item.title}</p>
+                  <div className="w-10/12 h-0.5 bg-gray-400 mx-auto"></div>
                   {item.links.map((link) => (
                     <NavLink
                       to={`/${link.name}`}
