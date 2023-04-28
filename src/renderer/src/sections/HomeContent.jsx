@@ -1,3 +1,5 @@
+import { NavLink } from 'react-router-dom'
+
 const HomeContent = () => {
   return (
     <section className="text-gray-400 ">
@@ -116,9 +118,12 @@ const HomeContent = () => {
             </div>
           </div>
         </div>
-        <button className="flex mx-auto mt-16 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">
-          Add your email
-        </button>
+        <NavLink
+          to="/email-accounts"
+          className="flex mx-auto mt-16 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg transition-all ease-in-out  "
+        >
+          Connect your email account
+        </NavLink>
       </div>
     </section>
   )

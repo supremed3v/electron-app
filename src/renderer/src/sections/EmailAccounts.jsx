@@ -1,4 +1,31 @@
+import { useEffect, useState } from 'react'
+
+import EmailModal from '../components/EmailModal'
+
 const EmailAccounts = () => {
+  const [modalOpen, setModalOpen] = useState(false)
+
+  useEffect(() => {
+    const handleEscapeKey = (event) => {
+      if (event.key === 'Escape') {
+        setModalOpen(false)
+      }
+    }
+
+    window.addEventListener('keydown', handleEscapeKey)
+    return () => {
+      window.removeEventListener('keydown', handleEscapeKey)
+    }
+  }, [])
+
+  const onClose = () => {
+    const modal = document.querySelector('.modal')
+    modal.classList.add('modal-closing')
+    setTimeout(() => {
+      setModalOpen(false)
+      modal.classList.remove('modal-closing')
+    }, 300)
+  }
   return (
     <section className="text-gray-400body-font">
       <div className="container px-5 py-24 mx-auto">
@@ -125,9 +152,14 @@ const EmailAccounts = () => {
             </div>
           </div>
         </div>
-        <button className="flex mx-auto mt-16 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">
+        <button
+          onClick={() => setModalOpen(true)}
+          className="flex mx-auto mt-16 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg"
+        >
           Add new account
         </button>
+
+        {modalOpen && <EmailModal isOpen={setModalOpen} onClose={onClose} />}
       </div>
     </section>
   )
