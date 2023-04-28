@@ -28,7 +28,7 @@ const Sidebar = () => {
 
       {/* Sidebar Links */}
 
-      <div className="mt-4 overflow-clip">
+      <div className="mt-4 overflow-hidden">
         <div className="flex items-center justify-left md:px-10 lg:px-10 px-4">
           <div className="flex flex-col items-center justify-center">
             <div className="mt-10">
