@@ -8,7 +8,12 @@ import Contacts from './sections/Contacts'
 const Home = () => {
   return (
     <div className="grid grid-cols-5">
-      <div className="bg-gray-800 h-100 rounded">
+      <div
+        style={{
+          height: '100%'
+        }}
+        className="bg-gray-800 rounded"
+      >
         <Sidebar />
       </div>
       <div className="col-span-4 px-4 py-4">

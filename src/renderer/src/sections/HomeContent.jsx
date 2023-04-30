@@ -1,6 +1,15 @@
 import { NavLink } from 'react-router-dom'
-
+import { useGlobalContext } from '../../context/ContextProvider'
+// import { ipcRenderer } from 'electron'
+const { notificationApi } = window.api
 const HomeContent = () => {
+  const { setIsClicked, isClicked } = useGlobalContext()
+  const handleNotification = () => {
+    // eslint-disable-next-line no-undef
+    // window.electron.notificationApi.sendNotification('Hello from React!')
+    notificationApi.sendNotification('Hello from React!')
+  }
+
   return (
     <section className="text-gray-400 ">
       <div className="container px-5 py-24 ml-[200px]">
@@ -124,6 +133,13 @@ const HomeContent = () => {
         >
           Connect your email account
         </NavLink>
+        <button
+          onClick={handleNotification}
+          className="flex mx-auto mt-16 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg transition-all ease-in-out  "
+        >
+          Notification button
+        </button>
+        {/* <NotificationComponent /> */}
       </div>
     </section>
   )

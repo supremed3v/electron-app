@@ -10,6 +10,7 @@ const initialState = {
   error: null
 }
 
+// eslint-disable-next-line react/prop-types
 export const ContextProvider = ({ children }) => {
   const [activeMenu, setActiveMenu] = useState(true)
   const [isClicked, setIsClicked] = useState(initialState)

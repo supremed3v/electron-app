@@ -17,7 +17,7 @@ const Sidebar = () => {
   }
 
   return (
-    <div>
+    <div className="h-100">
       {/* User Details Area */}
       <div className="flex items-center justify-center mt-4">
         <div className="flex flex-col items-center">
